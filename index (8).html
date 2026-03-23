@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ToolsX — AI Tools, Reviewed.</title>
+  <meta name="description" content="Honest, in-depth reviews and comparisons of the best AI tools for creators, marketers, and entrepreneurs."/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNCIgZmlsbD0iIzBmMGYwZiIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjYzhhOTZlIj5UPC90ZXh0Pjwvc3ZnPg=="/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0f0f0f;
+      --ink-soft: #3a3a3a;
+      --ink-muted: #888;
+      --paper: #f7f5f0;
+      --paper-warm: #edeae3;
+      --accent: #c8a96e;
+      --accent-dark: #a8893e;
+      --white: #ffffff;
+      --border: #e0dbd2;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(247,245,240,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 140px 2rem 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px; height: 1px;
+      background: var(--accent);
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--ink);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .hero-cta:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .hero-cta svg { width: 16px; height: 16px; }
+
+    .hero-visual {
+      position: relative;
+    }
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      position: relative;
+    }
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 8px; left: 8px; right: -8px; bottom: -8px;
+      background: var(--accent);
+      opacity: 0.15;
+      z-index: -1;
+    }
+    .hero-card-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-muted);
+      margin-bottom: 0.5rem;
+    }
+    .hero-card-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .hero-card-stars { color: var(--accent); font-size: 0.9rem; margin-bottom: 0.8rem; }
+    .hero-card-excerpt { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.6; }
+    .hero-card-link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent-dark);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+    .section-link {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-dark);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px;
+    }
+
+    /* ── ARTICLES GRID ── */
+    .articles-section { padding: 4rem 0; }
+    .articles-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .article-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+    }
+    .article-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .article-card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: var(--paper-warm);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .article-card-img-placeholder {
+      width: 100%; height: 180px;
+      background: linear-gradient(135deg, var(--paper-warm) 0%, var(--border) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      color: var(--accent);
+      letter-spacing: -0.05em;
+    }
+    .article-card-body { padding: 1.5rem; }
+    .article-card-tag {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-dark);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .article-card-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 0.6rem;
+      color: var(--ink);
+    }
+    .article-card-excerpt {
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .article-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding-top: 0.8rem;
+      margin-top: auto;
+    }
+    .article-card-date { font-size: 0.75rem; color: var(--ink-muted); }
+    .article-card-read {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* ── FEATURED (large card) ── */
+    .featured-section { padding: 2rem 0 4rem; }
+    .featured-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .featured-card {
+      background: var(--ink);
+      color: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 320px;
+      overflow: hidden;
+    }
+    .featured-card-body {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .featured-tag {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .featured-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .featured-excerpt {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .featured-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px;
+      width: fit-content;
+    }
+    .featured-visual {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .featured-visual::before {
+      content: 'AI';
+      font-family: var(--serif);
+      font-size: 8rem;
+      font-weight: 600;
+      color: rgba(200,169,110,0.15);
+      position: absolute;
+    }
+    .featured-visual-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 0.5rem;
+      position: relative; z-index: 1; padding: 2rem;
+    }
+    .fv-item {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(200,169,110,0.2);
+      padding: 0.8rem 0.5rem;
+      text-align: center;
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.05em;
+    }
+    .fv-item strong { display: block; color: var(--accent); font-size: 1rem; font-family: var(--serif); }
+
+    /* ── CATEGORIES ── */
+    .categories-section { padding: 4rem 0; background: var(--paper-warm); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .categories-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+    }
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    .category-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .category-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .category-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .category-name { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
+    .category-count { font-size: 0.72rem; color: var(--ink-muted); margin-top: 0.2rem; }
+
+    /* ── NEWSLETTER ── */
+    .newsletter-section {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .newsletter-inner { max-width: 520px; margin: 0 auto; }
+    .newsletter-eyebrow {
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--accent); margin-bottom: 1rem;
+    }
+    .newsletter h2 {
+      font-family: var(--serif);
+      font-size: 2.2rem; font-weight: 300;
+      line-height: 1.2; margin-bottom: 0.8rem;
+    }
+    .newsletter p { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 2rem; }
+    .newsletter-form { display: flex; gap: 0; max-width: 420px; margin: 0 auto; }
+    .newsletter-form input {
+      flex: 1;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+      border-right: none;
+      background: var(--white);
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      outline: none;
+      color: var(--ink);
+    }
+    .newsletter-form input:focus { border-color: var(--accent); }
+    .newsletter-form button {
+      padding: 0.85rem 1.5rem;
+      background: var(--ink);
+      color: var(--white);
+      border: 1px solid var(--ink);
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .newsletter-form button:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      padding: 3rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--white);
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.78rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 0.75rem; }
+
+    /* ── ARTICLE MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(15,15,15,0.6);
+      backdrop-filter: blur(4px);
+      overflow-y: auto;
+      padding: 2rem;
+    }
+    .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+    .modal {
+      background: var(--white);
+      max-width: 720px; width: 100%;
+      margin: 2rem auto;
+      position: relative;
+    }
+    .modal-header {
+      padding: 3rem 3rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .modal-tag {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--accent-dark); font-weight: 500; margin-bottom: 0.8rem;
+    }
+    .modal-title {
+      font-family: var(--serif);
+      font-size: 2rem; font-weight: 400;
+      line-height: 1.2; margin-bottom: 0.5rem;
+    }
+    .modal-meta { font-size: 0.78rem; color: var(--ink-muted); }
+    .modal-body { padding: 2rem 3rem 3rem; }
+    .modal-body p { font-size: 0.95rem; line-height: 1.8; color: var(--ink-soft); margin-bottom: 1.2rem; }
+    .modal-body h3 { font-family: var(--serif); font-size: 1.3rem; margin: 1.5rem 0 0.5rem; color: var(--ink); }
+    .modal-affiliate-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.9rem 2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .modal-affiliate-btn:hover { background: var(--accent-dark); }
+    .modal-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      background: none; border: 1px solid var(--border);
+      width: 36px; height: 36px;
+      cursor: pointer; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink-muted);
+      transition: border-color 0.2s;
+    }
+    .modal-close:hover { border-color: var(--ink); color: var(--ink); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.6s ease forwards; }
+    .fade-up-2 { animation: fadeUp 0.6s 0.1s ease both; }
+    .fade-up-3 { animation: fadeUp 0.6s 0.2s ease both; }
+    .fade-up-4 { animation: fadeUp 0.6s 0.3s ease both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 100px; }
+      .hero-visual { display: none; }
+      .articles-grid { grid-template-columns: repeat(2,1fr); }
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-visual { height: 200px; }
+      .categories-grid { grid-template-columns: repeat(3,1fr); }
+    }
+    @media (max-width: 600px) {
+      .articles-grid { grid-template-columns: 1fr; }
+      .categories-grid { grid-template-columns: repeat(2,1fr); }
+      .nav-links { display: none; }
+      .modal-header, .modal-body { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Tools<span>X</span></a>
+  <ul class="nav-links">
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#compare">Compare</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#newsletter">Newsletter</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">Independent AI Tool Reviews</div>
+    <h1 class="fade-up-2">Find the <em>right</em> AI tool — not the most hyped one.</h1>
+    <p class="hero-sub fade-up-3">Honest, in-depth reviews of the best AI tools for creators, marketers, and entrepreneurs. No fluff. Just clarity.</p>
+    <a href="#reviews" class="hero-cta fade-up-4">
+      Browse Reviews
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+    </a>
+  </div>
+  <div class="hero-visual fade-up-3">
+    <div class="hero-card">
+      <div class="hero-card-label">Editor's Pick</div>
+      <div class="hero-card-title">Jasper AI — Best for Long-Form Content</div>
+      <div class="hero-card-stars">★★★★★ 4.8 / 5</div>
+      <div class="hero-card-excerpt">After testing 20+ writing tools, Jasper remains the most consistent for producing publish-ready content at scale. Ideal for marketers and bloggers.</div>
+      <a href="#" class="hero-card-link" onclick="openModal('jasper')">Read Full Review →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="featured-section" id="compare">
+  <div class="featured-inner">
+    <div class="section-header" style="padding:0; margin-bottom: 1.5rem;">
+      <h2 class="section-title">Featured Comparison</h2>
+    </div>
+    <div class="featured-card">
+      <div class="featured-card-body">
+        <div class="featured-tag">In-Depth Comparison</div>
+        <div class="featured-title">Jasper AI vs Writesonic — Which Is Worth Your Money in 2026?</div>
+        <div class="featured-excerpt">We put both tools through 30 days of real-world writing tasks. The results might surprise you. One tool dominated in speed, the other in quality.</div>
+        <a href="#" class="featured-cta" onclick="openModal('comparison')">Read Comparison →</a>
+      </div>
+      <div class="featured-visual">
+        <div class="featured-visual-grid">
+          <div class="fv-item"><strong>30</strong>days tested</div>
+          <div class="fv-item"><strong>12</strong>tasks run</div>
+          <div class="fv-item"><strong>2</strong>clear winners</div>
+          <div class="fv-item"><strong>$99</strong>Jasper/mo</div>
+          <div class="fv-item"><strong>$79</strong>Sonic/mo</div>
+          <div class="fv-item"><strong>★4.8</strong>vs ★4.5</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="articles-section" id="reviews">
+  <div class="section-header">
+    <h2 class="section-title">Latest Reviews</h2>
+    <a href="#" class="section-link">All Articles →</a>
+  </div>
+  <div class="articles-grid" id="articles-grid">
+    <!-- Articles injected by JS from localStorage -->
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories-section" id="categories">
+  <div class="categories-inner">
+    <div class="section-header" style="padding:0; margin-bottom:0;">
+      <h2 class="section-title">Browse by Category</h2>
+    </div>
+    <div class="categories-grid">
+      <a class="category-item" href="#">
+        <div class="category-icon">✍️</div>
+        <div class="category-name">Writing</div>
+        <div class="category-count">12 tools</div>
+      </a>
+      <a class="category-item" href="#">
+        <div class="category-icon">🎨</div>
+        <div class="category-name">Design</div>
+        <div class="category-count">8 tools</div>
+      </a>
+      <a class="category-item" href="#">
+        <div class="category-icon">🎥</div>
+        <div class="category-name">Video</div>
+        <div class="category-count">6 tools</div>
+      </a>
+      <a class="category-item" href="#">
+        <div class="category-icon">📈</div>
+        <div class="category-name">Marketing</div>
+        <div class="category-count">10 tools</div>
+      </a>
+      <a class="category-item" href="#">
+        <div class="category-icon">💻</div>
+        <div class="category-name">Coding</div>
+        <div class="category-count">7 tools</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section" id="newsletter">
+  <div class="newsletter-inner newsletter">
+    <div class="newsletter-eyebrow">Weekly Intelligence</div>
+    <h2>The best AI tools, curated every week.</h2>
+    <p>Join 4,000+ readers who get our no-fluff newsletter every Tuesday — new tools, honest takes, and exclusive deals.</p>
+    <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+      <input type="email" placeholder="your@email.com" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Tools<span>X</span></div>
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Affiliate Disclosure</a>
+      <a href="#">Privacy</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 ToolsX</div>
+  </div>
+</footer>
+
+<!-- ARTICLE MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header">
+      <div class="modal-tag" id="modal-tag"></div>
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-meta" id="modal-meta"></div>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+  // ── SAMPLE / DEFAULT ARTICLES (shown until you add your own via admin) ──
+  const defaultArticles = [
+    {
+      id: 'jasper',
+      tag: 'Review',
+      title: 'Jasper AI Review 2026 — Is It Still the Best Writing Tool?',
+      excerpt: 'We tested Jasper AI for 30 days across 15 different content types. Here is what we found.',
+      date: 'March 20, 2026',
+      affiliateLink: 'https://jasper.ai',
+      affiliateLabel: 'Try Jasper AI Free →',
+      content: `<p>Jasper AI has been around since 2021 and remains one of the most powerful AI writing tools on the market. We spent 30 days using it daily to give you the most honest review possible.</p><h3>What Is Jasper AI?</h3><p>Jasper is an AI writing assistant designed for marketers, bloggers, and content teams. It uses GPT-4 under the hood with additional layers of fine-tuning for marketing content.</p><h3>Key Features</h3><p>Boss Mode lets you write long-form content with minimal prompts. The template library has 50+ frameworks for ads, emails, product descriptions, and blog posts. The Brand Voice feature trains Jasper on your writing style.</p><h3>Pricing</h3><p>Plans start at $39/month for individuals and $99/month for teams. There is a 7-day free trial available.</p><h3>Our Verdict</h3><p>Jasper AI earns a 4.8/5. It is the best option for marketers and content teams who need consistent, high-volume output. For casual bloggers, a cheaper tool might suffice.</p>`
+    },
+    {
+      id: 'comparison',
+      tag: 'Comparison',
+      title: 'Jasper AI vs Writesonic — Which Is Better in 2026?',
+      excerpt: 'A head-to-head comparison after 30 days of real-world testing. One tool dominated in speed, the other in quality.',
+      date: 'March 15, 2026',
+      affiliateLink: 'https://writesonic.com',
+      affiliateLabel: 'Try Writesonic Free →',
+      content: `<p>We ran both tools through identical tasks over 30 days: blog posts, product descriptions, email sequences, and social media content. Here is the honest breakdown.</p><h3>Speed</h3><p>Writesonic generates content approximately 40% faster than Jasper in our tests. For high-volume needs this matters significantly.</p><h3>Quality</h3><p>Jasper produces more polished, publish-ready content. Writesonic output requires slightly more editing but is still excellent for the price.</p><h3>Price Comparison</h3><p>Writesonic starts at $79/month vs Jasper at $99/month. Both offer free trials.</p><h3>Winner</h3><p>Choose Jasper if quality is your priority. Choose Writesonic if you need speed and volume at a lower price point.</p>`
+    },
+    {
+      id: 'canva',
+      tag: 'Review',
+      title: 'Canva AI Features 2026 — Magic Studio Reviewed',
+      excerpt: 'Canva added powerful AI features this year. We tested every single one to see if they are worth paying for.',
+      date: 'March 10, 2026',
+      affiliateLink: 'https://canva.com',
+      affiliateLabel: 'Try Canva Pro Free →',
+      content: `<p>Canva has transformed from a simple design tool into a full AI-powered creative suite. We tested every AI feature in Magic Studio to give you an honest verdict.</p><h3>Magic Write</h3><p>The AI copy generator inside Canva is surprisingly good for short-form content like social captions, headlines, and presentation titles.</p><h3>Text to Image</h3><p>Canva's image generator is decent but falls behind Midjourney and DALL-E for quality. Fine for quick social graphics, not for premium work.</p><h3>Magic Eraser & Edit</h3><p>The standout features. Removing backgrounds and objects from photos is now genuinely one-click and works 90% of the time perfectly.</p><h3>Verdict</h3><p>Canva Pro at $15/month is one of the best value AI tool subscriptions available. The AI features alone justify the price for any content creator.</p>`
+    }
+  ];
+
+  // Load articles (custom from admin + defaults)
+  function loadArticles() {
+    const stored = JSON.parse(localStorage.getItem('np_articles') || '[]');
+    const all = [...stored, ...defaultArticles];
+    const grid = document.getElementById('articles-grid');
+    grid.innerHTML = '';
+    all.forEach(article => {
+      const card = document.createElement('div');
+      card.className = 'article-card';
+      card.innerHTML = `
+        <div class="article-card-img-placeholder">${article.tag[0]}</div>
+        <div class="article-card-body">
+          <div class="article-card-tag">${article.tag}</div>
+          <div class="article-card-title">${article.title}</div>
+          <div class="article-card-excerpt">${article.excerpt}</div>
+          <div class="article-card-footer">
+            <span class="article-card-date">${article.date}</span>
+            <a class="article-card-read" href="#">Read →</a>
+          </div>
+        </div>`;
+      card.addEventListener('click', () => openModalWithData(article));
+      grid.appendChild(card);
+    });
+  }
+
+  // Modal
+  function openModalWithData(article) {
+    document.getElementById('modal-tag').textContent = article.tag;
+    document.getElementById('modal-title').textContent = article.title;
+    document.getElementById('modal-meta').textContent = article.date;
+    document.getElementById('modal-body').innerHTML = article.content +
+      `<a class="modal-affiliate-btn" href="${article.affiliateLink}" target="_blank">${article.affiliateLabel}</a>`;
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function openModal(id) {
+    const stored = JSON.parse(localStorage.getItem('np_articles') || '[]');
+    const all = [...stored, ...defaultArticles];
+    const article = all.find(a => a.id === id);
+    if (article) openModalWithData(article);
+  }
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('modal-overlay')) closeModal();
+  }
+
+  function handleSubscribe(e) {
+    e.preventDefault();
+    alert('Thank you for subscribing! You will receive your first newsletter on Tuesday.');
+    e.target.reset();
+  }
+
+  loadArticles();
+</script>
+</body>
+</html>
