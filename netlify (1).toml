@@ -1,0 +1,16 @@
+# Netlify Configuration for ToolsX
+
+[build]
+  publish = "."
+  command = "sed -i \"s/__ADMIN_PASS__/$ADMIN_PASS/g\" admin.html"
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 200
