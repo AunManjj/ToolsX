@@ -1,0 +1,21 @@
+# Netlify Configuration for ToolsX
+
+[build]
+  publish = "."
+  command = "sed -i \"s/__ADMIN_PASS__/$ADMIN_PASS/g\" admin.html"
+
+[build.environment]
+  SECRETS_SCAN_OMIT_PATHS = "admin.html"
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 200
