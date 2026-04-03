@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal Pages - ToolsX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-blue: #0052cc;
+      --primary-dark: #0033a0;
+      --accent-cyan: #00d9ff;
+      --text-primary: #0a0e27;
+      --text-secondary: #5a6b82;
+      --light-gray: #f5f7fb;
+      --border-light: rgba(0, 82, 204, 0.1);
+      --shadow-soft: 0 2px 8px rgba(0, 52, 160, 0.08);
+    }
+
+    body {
+      font-family: 'Sora', sans-serif;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+      color: var(--text-primary);
+      line-height: 1.8;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border-light);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    nav a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 2rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary-blue);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+    }
+
+    .content {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2rem 0 1rem 0;
+      color: var(--primary-blue);
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 1.5rem 0 0.8rem 0;
+      color: var(--text-primary);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.8rem;
+    }
+
+    .last-updated {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    footer {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, #001a4d 100%);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 1.8rem;
+      }
+
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span>ToolsX</span>
+    </a>
+    <nav>
+      <a href="index.html">Blog</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- CONTENT AREA -->
+<div class="container">
+  <!-- PRIVACY POLICY -->
+  <div id="privacy" style="display: none;">
+    <h1 class="page-title">Privacy Policy</h1>
+    
+    <div class="content">
+      <div class="last-updated">Last updated: March 31, 2025</div>
+
+      <h2>Introduction</h2>
+      <p>
+        ToolsX ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
+      </p>
+
+      <h2>1. Information We Collect</h2>
+      
+      <h3>a) Information You Provide Voluntarily</h3>
+      <ul>
+        <li>Email address (if you contact us)</li>
+        <li>Name and message (through contact form)</li>
+        <li>Any other information you choose to provide</li>
+      </ul>
+
+      <h3>b) Information Collected Automatically</h3>
+      <ul>
+        <li>Browser type and version</li>
+        <li>Operating system</li>
+        <li>IP address</li>
+        <li>Pages viewed and time spent</li>
+        <li>Links clicked</li>
+        <li>Referral source</li>
+      </ul>
+
+      <p>We collect this information through cookies, analytics tools, and similar technologies.</p>
+
+      <h2>2. How We Use Your Information</h2>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Improve our website and content</li>
+        <li>Understand user behavior and preferences</li>
+        <li>Monitor affiliate link performance</li>
+        <li>Respond to your inquiries</li>
+        <li>Send occasional emails (if you opt-in)</li>
+        <li>Comply with legal obligations</li>
+      </ul>
+
+      <h2>3. Cookies and Tracking</h2>
+      <p>
+        We use cookies and similar tracking technologies to enhance your experience. These include:
+      </p>
+      <ul>
+        <li><strong>Essential Cookies:</strong> Necessary for site functionality</li>
+        <li><strong>Analytics Cookies:</strong> Help us understand usage patterns</li>
+        <li><strong>Affiliate Cookies:</strong> Track affiliate link performance</li>
+      </ul>
+      <p>Most browsers allow you to refuse cookies. Please consult your browser's help section for instructions.</p>
+
+      <h2>4. Third-Party Links</h2>
+      <p>
+        Our website contains affiliate links to third-party websites. We are not responsible for the privacy practices of these external sites. We encourage you to read their privacy policies before providing any information.
+      </p>
+
+      <h2>5. Data Security</h2>
+      <p>
+        We implement appropriate technical and organizational measures to protect your information. However, no method of transmission over the internet is 100% secure. We cannot guarantee absolute security of your data.
+      </p>
+
+      <h2>6. Your Privacy Rights</h2>
+      <p>Depending on your location, you may have the following rights:</p>
+      <ul>
+        <li>Right to access your data</li>
+        <li>Right to correct inaccurate data</li>
+        <li>Right to request deletion of your data</li>
+        <li>Right to opt-out of marketing communications</li>
+        <li>Right to data portability</li>
+      </ul>
+      <p>To exercise these rights, contact us at: hello@toolsx.online</p>
+
+      <h2>7. Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date.
+      </p>
+
+      <h2>8. Contact Us</h2>
+      <p>
+        If you have questions about this Privacy Policy, please contact us at:<br>
+        <strong>Email:</strong> hello@toolsx.online<br>
+        <strong>Website:</strong> https://toolsx.online
+      </p>
+    </div>
+  </div>
+
+  <!-- TERMS OF SERVICE -->
+  <div id="terms" style="display: none;">
+    <h1 class="page-title">Terms of Service</h1>
+    
+    <div class="content">
+      <div class="last-updated">Last updated: March 31, 2025</div>
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>
+        By accessing and using the ToolsX website, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+      </p>
+
+      <h2>2. Use License</h2>
+      <p>
+        Permission is granted to temporarily download one copy of the materials (information or software) on ToolsX for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+      </p>
+      <ul>
+        <li>Modify or copy the materials</li>
+        <li>Use the materials for any commercial purpose or for any public display</li>
+        <li>Attempt to decompile or reverse engineer the software</li>
+        <li>Remove any copyright or other proprietary notations from the materials</li>
+        <li>Transfer the materials to another person or "mirror" the materials on any other server</li>
+        <li>Harass, abuse, or harm other users</li>
+      </ul>
+
+      <h2>3. Disclaimer of Warranties</h2>
+      <p>
+        The materials on ToolsX are provided on an 'as is' basis. ToolsX makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+      </p>
+
+      <h2>4. Limitations of Liability</h2>
+      <p>
+        In no event shall ToolsX or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on ToolsX.
+      </p>
+
+      <h2>5. Accuracy of Materials</h2>
+      <p>
+        The materials appearing on ToolsX could include technical, typographical, or photographic errors. ToolsX does not warrant that any of the materials on our website are accurate, complete, or current. We may make changes to the materials contained on our website at any time without notice.
+      </p>
+
+      <h2>6. Affiliate Links & Disclaimers</h2>
+      <p>
+        ToolsX participates in affiliate programs. Links to external websites may be affiliate links. We may earn a commission if you purchase through these links at no additional cost to you. These reviews and recommendations are our honest opinions based on our research and experience.
+      </p>
+
+      <h2>7. External Links</h2>
+      <p>
+        ToolsX has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by ToolsX of the site. Use of any such linked website is at the user's own risk.
+      </p>
+
+      <h2>8. Modifications</h2>
+      <p>
+        ToolsX may revise these terms of service for our website at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of service.
+      </p>
+
+      <h2>9. Governing Law</h2>
+      <p>
+        These terms and conditions are governed by and construed in accordance with the laws of the United States, and you irrevocably submit to the exclusive jurisdiction of the courts in that location.
+      </p>
+
+      <h2>10. Contact Information</h2>
+      <p>
+        If you have any questions about these Terms of Service, please contact us at:<br>
+        <strong>Email:</strong> hello@toolsx.online<br>
+        <strong>Website:</strong> https://toolsx.online
+      </p>
+    </div>
+  </div>
+
+  <!-- CONTACT PAGE -->
+  <div id="contact" style="display: none;">
+    <h1 class="page-title">Contact Us</h1>
+    
+    <div class="content">
+      <p>
+        Have questions, suggestions, or feedback? We'd love to hear from you! Reach out to us using the information below.
+      </p>
+
+      <h2>Contact Information</h2>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:hello@toolsx.online" style="color: var(--primary-blue); text-decoration: none;">hello@toolsx.online</a></li>
+        <li><strong>Website:</strong> <a href="https://toolsx.online" style="color: var(--primary-blue); text-decoration: none;">https://toolsx.online</a></li>
+      </ul>
+
+      <h2>Contact Form</h2>
+      <form onsubmit="handleContactSubmit(event)" style="margin-top: 2rem;">
+        <div style="margin-bottom: 1rem;">
+          <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Name</label>
+          <input type="text" name="name" placeholder="Your name" required style="width: 100%; padding: 0.8rem; border: 1px solid var(--border-light); border-radius: 8px; font-family: 'Sora', sans-serif;">
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Email</label>
+          <input type="email" name="email" placeholder="your@email.com" required style="width: 100%; padding: 0.8rem; border: 1px solid var(--border-light); border-radius: 8px; font-family: 'Sora', sans-serif;">
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Subject</label>
+          <input type="text" name="subject" placeholder="What is this about?" required style="width: 100%; padding: 0.8rem; border: 1px solid var(--border-light); border-radius: 8px; font-family: 'Sora', sans-serif;">
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Message</label>
+          <textarea name="message" placeholder="Your message..." required style="width: 100%; padding: 0.8rem; border: 1px solid var(--border-light); border-radius: 8px; min-height: 150px; font-family: 'Sora', sans-serif;"></textarea>
+        </div>
+
+        <button type="submit" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-cyan) 100%); color: white; padding: 0.8rem 2rem; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 1rem;">Send Message</button>
+      </form>
+
+      <h2 style="margin-top: 3rem;">Response Time</h2>
+      <p>
+        We aim to respond to all messages within 24-48 hours. Thank you for reaching out to ToolsX!
+      </p>
+
+      <h2>Follow Us</h2>
+      <p>
+        Stay updated with our latest reviews and guides:
+      </p>
+      <ul>
+        <li><a href="https://twitter.com/toolsx" target="_blank" style="color: var(--primary-blue); text-decoration: none;">Twitter</a></li>
+        <li><a href="https://linkedin.com/company/toolsx" target="_blank" style="color: var(--primary-blue); text-decoration: none;">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 ToolsX. All rights reserved. | <a href="privacy.html" style="color: inherit; text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: inherit; text-decoration: none;">Terms of Service</a> | <a href="contact.html" style="color: inherit; text-decoration: none;">Contact</a></p>
+</footer>
+
+<script>
+  // Page router
+  function showPage(page) {
+    document.querySelectorAll('[id="privacy"], [id="terms"], [id="contact"]').forEach(el => el.style.display = 'none');
+    const element = document.getElementById(page);
+    if (element) element.style.display = 'block';
+  }
+
+  // Get current page from URL
+  const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'privacy';
+  
+  // Show appropriate page
+  if (currentPage === 'contact') {
+    document.getElementById('contact').style.display = 'block';
+    document.querySelector('.page-title').textContent = 'Contact Us';
+  } else if (currentPage === 'terms') {
+    document.getElementById('terms').style.display = 'block';
+    document.querySelector('.page-title').textContent = 'Terms of Service';
+  } else {
+    document.getElementById('privacy').style.display = 'block';
+    document.querySelector('.page-title').textContent = 'Privacy Policy';
+  }
+
+  // Contact form handler
+  function handleContactSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+      date: new Date().toISOString()
+    };
+
+    // Save to localStorage (for demo)
+    let messages = JSON.parse(localStorage.getItem('toolsx_contact_messages') || '[]');
+    messages.push(data);
+    localStorage.setItem('toolsx_contact_messages', JSON.stringify(messages));
+
+    // Show confirmation
+    alert('Thank you for your message! We will get back to you soon.');
+    event.target.reset();
+  }
+</script>
+
+</body>
+</html>
