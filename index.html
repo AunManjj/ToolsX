@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToolsX - AI Tools Reviews & Blog | Professional Content</title>
+  <meta name="description" content="Discover honest reviews of the best AI tools, in-depth guides, and industry insights on ToolsX."/>
+  <meta name="keywords" content="AI tools, reviews, blogging, ChatGPT, Claude, AI guides, affiliate reviews"/>
+  <meta name="author" content="ToolsX Team"/>
+  <meta name="robots" content="index, follow"/>
+  
+  <!-- Open Graph for Social Sharing -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="ToolsX"/>
+  <meta property="og:locale" content="en_US"/>
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cmVjdCB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgcng9IjI0IiBmaWxsPSIjMDAzM2EwIi8+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJmYXZHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDA1MmNjO3N0b3Atb3BhY2l0eToxIiAvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwZDlmZjtzdG9wLW9wYWNpdHk6MSIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48Y2lyY2xlIGN4PSI2NCIgY3k9IjY0IiByPSI0OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI2Zhd0dyYWQpIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxwb2x5Z29uIHBvaW50cz0iNjQsNDAgNzAsNTIgNjQsNTQgNTgsNTIiIGZpbGw9InVybCgjZmF3R3JhZCkiLz48dGV4dCB4PSI2NCIgeT0iODAiIGZvbnQtZmFtaWx5PSJTcGFjZSBHcm90ZXNrIiBmb250LXNpemU9IjMyIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0idXJsKCNmYXdHcmFkKSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+WDwvdGV4dD48L3N2Zz4="/>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-blue: #0052cc;
+      --primary-dark: #0033a0;
+      --accent-cyan: #00d9ff;
+      --success: #00d084;
+      --warning: #ff9500;
+      --danger: #ff3b30;
+      --white: #ffffff;
+      --light-gray: #f5f7fb;
+      --dark-gray: #1a2332;
+      --text-primary: #0a0e27;
+      --text-secondary: #5a6b82;
+      --border-light: rgba(0, 82, 204, 0.1);
+      --shadow-soft: 0 2px 8px rgba(0, 52, 160, 0.08);
+      --shadow-med: 0 8px 24px rgba(0, 52, 160, 0.12);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Sora', sans-serif;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-cyan) 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary-blue);
+    }
+
+    .admin-link {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-cyan) 100%);
+      color: white !important;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      text-align: center;
+      padding: 3rem 0;
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .search-bar {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 1rem;
+      border: 2px solid var(--border-light);
+      border-radius: 8px;
+      font-family: 'Sora', sans-serif;
+      font-size: 1rem;
+    }
+
+    .search-bar button {
+      padding: 1rem 1.5rem;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-cyan) 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+
+    .search-bar button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* MAIN LAYOUT */
+    .blog-layout {
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    /* BLOG FEED */
+    .blog-feed {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .blog-card:hover {
+      box-shadow: var(--shadow-med);
+      transform: translateY(-4px);
+    }
+
+    .blog-card-header {
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-cyan) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+      overflow: hidden;
+    }
+
+    .blog-card-header img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .blog-card-body {
+      padding: 1.5rem;
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      flex-wrap: wrap;
+    }
+
+    .blog-author {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .blog-author-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-cyan) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+
+    .blog-category {
+      display: inline-block;
+      background: rgba(0, 82, 204, 0.1);
+      color: var(--primary-blue);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    .blog-card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .blog-card-excerpt {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .blog-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .blog-stats {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .blog-read-btn {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-cyan) 100%);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+
+    .blog-read-btn:hover {
+      transform: translateX(4px);
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .sidebar-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .sidebar-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    /* AUTHOR PROFILE */
+    .author-profile {
+      text-align: center;
+    }
+
+    .author-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-cyan) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 2.5rem;
+      margin: 0 auto 1rem;
+    }
+
+    .author-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .author-bio {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .author-link {
+      display: inline-block;
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .author-link:hover {
+      color: var(--accent-cyan);
+    }
+
+    /* CATEGORIES */
+    .categories-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .category-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.8rem;
+      background: rgba(0, 82, 204, 0.05);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .category-item:hover {
+      background: rgba(0, 82, 204, 0.1);
+      transform: translateX(4px);
+    }
+
+    .category-name {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .category-count {
+      background: var(--primary-blue);
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* POPULAR POSTS */
+    .popular-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border-light);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .popular-item:hover {
+      padding-left: 0.5rem;
+    }
+
+    .popular-item:last-child {
+      border-bottom: none;
+    }
+
+    .popular-item-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+      font-size: 0.95rem;
+    }
+
+    .popular-item-meta {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* FOOTER */
+    footer {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, #001a4d 100%);
+      color: white;
+      padding: 3rem 2rem;
+      margin-top: 3rem;
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .footer-section a {
+      display: block;
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      margin-bottom: 0.8rem;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: var(--accent-cyan);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* BLOG DETAIL VIEW */
+    .blog-detail {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .blog-detail-header {
+      margin-bottom: 3rem;
+    }
+
+    .blog-detail-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .blog-detail-meta {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid var(--border-light);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .blog-detail-image {
+      width: 100%;
+      max-height: 500px;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      object-fit: cover;
+    }
+
+    .blog-detail-content {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text-primary);
+      margin-bottom: 2rem;
+    }
+
+    .blog-detail-content h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 2rem 0 1rem 0;
+      color: var(--text-primary);
+    }
+
+    .blog-detail-content h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 1.5rem 0 0.8rem 0;
+      color: var(--text-primary);
+    }
+
+    .blog-detail-content p {
+      margin-bottom: 1rem;
+    }
+
+    .blog-detail-content ul,
+    .blog-detail-content ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .blog-detail-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-detail-content blockquote {
+      border-left: 4px solid var(--primary-blue);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    .blog-detail-content code {
+      background: var(--light-gray);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+    }
+
+    .blog-detail-content pre {
+      background: var(--light-gray);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+    }
+
+    /* AFFILIATE SECTION */
+    .affiliate-section {
+      background: linear-gradient(135deg, rgba(0, 82, 204, 0.05) 0%, rgba(0, 217, 255, 0.05) 100%);
+      border-left: 4px solid var(--primary-blue);
+      padding: 2rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .affiliate-title {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .affiliate-links {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .affiliate-link-btn {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: white;
+      border: 2px solid var(--primary-blue);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .affiliate-link-btn:hover {
+      background: var(--primary-blue);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .affiliate-favicon {
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      background: var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      nav {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .blog-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-card-title {
+        font-size: 1.2rem;
+      }
+
+      .blog-detail-title {
+        font-size: 1.8rem;
+      }
+
+      .blog-detail-meta {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .search-bar {
+        flex-direction: column;
+      }
+
+      .search-bar button {
+        width: 100%;
+      }
+    }
+
+    /* LOADING ANIMATION */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .blog-card {
+      animation: fadeIn 0.5s ease-out;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-icon">✦</div>
+      <span>ToolsX</span>
+    </a>
+    <nav>
+      <a href="#blog">Blog</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="admin.html" class="admin-link" target="_blank">🔐 Admin</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<div class="container">
+  <div class="hero">
+    <h1>Welcome to ToolsX Blog</h1>
+    <p>Honest reviews, in-depth guides, and insights on the best AI tools for professionals</p>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search blog posts...">
+      <button onclick="searchBlogs()">Search</button>
+    </div>
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="blog-layout">
+    <!-- BLOG FEED -->
+    <div class="blog-feed" id="blog-feed">
+      <p style="text-align: center; color: var(--text-secondary); padding: 2rem;">Loading blog posts...</p>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <!-- AUTHOR PROFILE -->
+      <div class="sidebar-card author-profile">
+        <div class="author-avatar">✦</div>
+        <div class="author-name" id="author-name">ToolsX Team</div>
+        <div class="author-bio" id="author-bio">Expert reviews of AI tools and technology for professionals worldwide.</div>
+        <a href="#" class="author-link">View Profile →</a>
+      </div>
+
+      <!-- CATEGORIES -->
+      <div class="sidebar-card">
+        <h3>📂 Categories</h3>
+        <div class="categories-list" id="categories-list">
+          <p style="color: var(--text-secondary);">Loading categories...</p>
+        </div>
+      </div>
+
+      <!-- POPULAR POSTS -->
+      <div class="sidebar-card">
+        <h3>⭐ Popular Posts</h3>
+        <div id="popular-posts">
+          <p style="color: var(--text-secondary);">Loading popular posts...</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-section">
+      <h4>ToolsX Blog</h4>
+      <p>Professional reviews and guides for AI tools.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Categories</h4>
+      <a href="#reviews">Reviews</a>
+      <a href="#guides">Guides</a>
+      <a href="#news">News</a>
+    </div>
+    <div class="footer-section">
+      <h4>Resources</h4>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#terms">Terms of Service</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-section">
+      <h4>Connect</h4>
+      <a href="#twitter">Twitter</a>
+      <a href="#linkedin">LinkedIn</a>
+      <a href="#email">Email</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 ToolsX. All rights reserved. Professional AI tool reviews.</p>
+  </div>
+</footer>
+
+<!-- MODAL FOR BLOG DETAIL -->
+<div id="blog-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; overflow-y: auto;">
+  <div style="background: white; max-width: 900px; margin: 2rem auto; border-radius: 12px; padding: 2rem; position: relative;">
+    <button onclick="closeBlogModal()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">✕</button>
+    <div id="blog-detail-content"></div>
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = 'toolsx_blog_articles';
+  const AUTHOR_KEY = 'toolsx_author_profile';
+  
+  let currentSearchQuery = '';
+
+  // Initialize
+  function init() {
+    loadAuthorProfile();
+    loadBlogPosts();
+    loadCategories();
+    loadPopularPosts();
+    checkScheduledPosts();
+  }
+
+  function loadAuthorProfile() {
+    const author = JSON.parse(localStorage.getItem(AUTHOR_KEY) || '{"name":"ToolsX Team","bio":"Expert reviews of AI tools and technology for professionals worldwide.","link":"#"}');
+    document.getElementById('author-name').textContent = author.name;
+    document.getElementById('author-bio').textContent = author.bio;
+    document.querySelector('.author-link').href = author.link;
+  }
+
+  function loadBlogPosts(filter = '') {
+    const articles = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    const feed = document.getElementById('blog-feed');
+
+    let filtered = articles
+      .filter(a => a.status === 'published')
+      .filter(a => {
+        if (filter === '') return true;
+        return a.category.toLowerCase() === filter.toLowerCase();
+      })
+      .filter(a => {
+        if (currentSearchQuery === '') return true;
+        const query = currentSearchQuery.toLowerCase();
+        return a.title.toLowerCase().includes(query) || 
+               a.description.toLowerCase().includes(query) ||
+               a.content.toLowerCase().includes(query) ||
+               (a.website && a.website.toLowerCase().includes(query));
+      })
+      .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+
+    if (filtered.length === 0) {
+      feed.innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 2rem; grid-column: 1/-1;">No blog posts found.</p>';
+      return;
+    }
+
+    feed.innerHTML = filtered.map(article => `
+      <div class="blog-card" onclick="openBlogDetail('${article.slug}')">
+        <div class="blog-card-header">
+          ${article.image ? `<img src="${article.image}" alt="${article.title}">` : '📰'}
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span class="blog-category">${article.category}</span>
+            <div class="blog-author">
+              <div class="blog-author-avatar">${article.authorName.charAt(0)}</div>
+              <span>${article.authorName}</span>
+            </div>
+            <span>${new Date(article.publishDate).toLocaleDateString()}</span>
+          </div>
+          <h2 class="blog-card-title">${article.title}</h2>
+          <p class="blog-card-excerpt">${article.description}</p>
+          <div class="blog-card-footer">
+            <div class="blog-stats">
+              <span>👁️ ${article.views || 0} views</span>
+              <span>❤️ ${article.likes || 0} likes</span>
+              <span>⏱️ ${Math.ceil(article.readTime || 5)} min read</span>
+            </div>
+            <button class="blog-read-btn">Read Article →</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function loadCategories() {
+    const articles = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    const categories = {};
+
+    articles
+      .filter(a => a.status === 'published')
+      .forEach(a => {
+        categories[a.category] = (categories[a.category] || 0) + 1;
+      });
+
+    const categoriesList = document.getElementById('categories-list');
+    if (Object.keys(categories).length === 0) {
+      categoriesList.innerHTML = '<p style="color: var(--text-secondary);">No categories yet</p>';
+      return;
+    }
+
+    categoriesList.innerHTML = Object.entries(categories).map(([cat, count]) => `
+      <div class="category-item" onclick="filterByCategory('${cat}')">
+        <span class="category-name">${cat}</span>
+        <span class="category-count">${count}</span>
+      </div>
+    `).join('');
+  }
+
+  function loadPopularPosts() {
+    const articles = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    const popular = articles
+      .filter(a => a.status === 'published')
+      .sort((a, b) => (b.views || 0) - (a.views || 0))
+      .slice(0, 5);
+
+    const container = document.getElementById('popular-posts');
+    if (popular.length === 0) {
+      container.innerHTML = '<p style="color: var(--text-secondary);">No posts yet</p>';
+      return;
+    }
+
+    container.innerHTML = popular.map(post => `
+      <div class="popular-item" onclick="openBlogDetail('${post.slug}')">
+        <div class="popular-item-title">${post.title}</div>
+        <div class="popular-item-meta">👁️ ${post.views || 0} views</div>
+      </div>
+    `).join('');
+  }
+
+  function filterByCategory(category) {
+    loadBlogPosts(category);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function searchBlogs() {
+    currentSearchQuery = document.getElementById('search-input').value;
+    loadBlogPosts();
+  }
+
+  function openBlogDetail(slug) {
+    const articles = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    const article = articles.find(a => a.slug === slug);
+
+    if (!article) {
+      alert('Blog post not found');
+      return;
+    }
+
+    // Increment views
+    article.views = (article.views || 0) + 1;
+    const articles2 = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    const index = articles2.findIndex(a => a.slug === slug);
+    if (index !== -1) articles2[index] = article;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(articles2));
+
+    // Render detail
+    const detailContent = document.getElementById('blog-detail-content');
+    detailContent.innerHTML = `
+      <article class="blog-detail">
+        <div class="blog-detail-header">
+          <h1 class="blog-detail-title">${article.title}</h1>
+          <div class="blog-detail-meta">
+            <div class="blog-author">
+              <div class="blog-author-avatar">${article.authorName.charAt(0)}</div>
+              <span>${article.authorName}</span>
+            </div>
+            <span>${new Date(article.publishDate).toLocaleDateString()}</span>
+            <span>📖 ${Math.ceil(article.readTime || 5)} min read</span>
+            <span>👁️ ${article.views || 1} views</span>
+          </div>
+        </div>
+        ${article.image ? `<img src="${article.image}" alt="${article.title}" class="blog-detail-image">` : ''}
+        <div class="blog-detail-content">${article.content}</div>
+        
+        ${article.website ? `
+          <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%); border-radius: 8px; border-left: 4px solid var(--primary-blue);">
+            <strong style="color: var(--text-primary);">🌐 About:</strong>
+            <a href="${article.website}" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-left: 0.5rem; color: var(--primary-blue); text-decoration: none; font-weight: 600; word-break: break-all;">${article.website}</a>
+          </div>
+        ` : ''}
+        
+        ${article.affiliateLinks && article.affiliateLinks.length > 0 ? `
+          <div class="affiliate-section">
+            <div class="affiliate-title">🔗 Recommended Resources</div>
+            <div class="affiliate-links">
+              ${article.affiliateLinks.map((link, idx) => `
+                <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="affiliate-link-btn" onclick="trackAffiliateClick('${article.slug}', ${idx})">
+                  <div class="affiliate-favicon">${link.favicon || '🌐'}</div>
+                  <span>${link.label}</span>
+                  <span style="margin-left: auto;">Try Now →</span>
+                </a>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
+        
+        <div style="margin-top: 3rem; padding: 2rem; background: var(--light-gray); border-radius: 8px;">
+          <h3 style="margin-bottom: 1rem;">📌 Share This Post</h3>
+          <div style="display: flex; gap: 1rem;">
+            <button onclick="sharePost('${article.slug}', 'twitter')" style="padding: 0.6rem 1rem; background: #1DA1F2; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Share on Twitter</button>
+            <button onclick="sharePost('${article.slug}', 'linkedin')" style="padding: 0.6rem 1rem; background: #0A66C2; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Share on LinkedIn</button>
+            <button onclick="copyPermalink('toolsx.online/blog/${article.slug}')" style="padding: 0.6rem 1rem; background: var(--primary-blue); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Copy Link</button>
+          </div>
+        </div>
+      </article>
+    `;
+
+    document.getElementById('blog-modal').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    loadBlogPosts();
+    loadPopularPosts();
+  }
+
+  function closeBlogModal() {
+    document.getElementById('blog-modal').style.display = 'none';
+  }
+
+  function trackAffiliateClick(slug, linkIndex) {
+    const articles = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    const article = articles.find(a => a.slug === slug);
+    if (article && article.affiliateLinks && article.affiliateLinks[linkIndex]) {
+      article.affiliateLinks[linkIndex].clicks = (article.affiliateLinks[linkIndex].clicks || 0) + 1;
+      const index = articles.findIndex(a => a.slug === slug);
+      if (index !== -1) articles[index] = article;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(articles));
+    }
+  }
+
+  function sharePost(slug, platform) {
+    const url = `toolsx.online/blog/${slug}`;
+    const title = 'Check out this amazing blog post on ToolsX!';
+    if (platform === 'twitter') {
+      window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '_blank');
+    } else if (platform === 'linkedin') {
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+    }
+  }
+
+  function copyPermalink(url) {
+    navigator.clipboard.writeText(url);
+    alert('Link copied to clipboard!');
+  }
+
+  function checkScheduledPosts() {
+    const articles = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    const now = new Date();
+    let updated = false;
+
+    articles.forEach(article => {
+      if (article.status === 'scheduled' && article.scheduledTime) {
+        const scheduledTime = new Date(article.scheduledTime);
+        if (now >= scheduledTime) {
+          article.status = 'published';
+          article.publishDate = now;
+          updated = true;
+        }
+      }
+    });
+
+    if (updated) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(articles));
+      loadBlogPosts();
+      loadCategories();
+      loadPopularPosts();
+    }
+  }
+
+  // Check every minute
+  setInterval(checkScheduledPosts, 60000);
+
+  // Initialize on load
+  window.addEventListener('load', init);
+  document.addEventListener('click', (e) => {
+    if (e.target.id === 'blog-modal') closeBlogModal();
+  });
+</script>
+
+</body>
+</html>
