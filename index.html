@@ -11,8 +11,6 @@
   <meta name="author" content="ToolsX Team"/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" id="page-canon" href="https://toolsx.online/"/>
-
-  <!-- Open Graph -->
   <meta property="og:site_name" content="ToolsX"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:type" id="og-type" content="website"/>
@@ -20,13 +18,10 @@
   <meta property="og:description" id="og-desc" content="Discover honest reviews of the best AI tools, in-depth guides, and industry insights on ToolsX."/>
   <meta property="og:url" id="og-url" content="https://toolsx.online/"/>
   <meta property="og:image" id="og-img" content="https://toolsx.online/og-default.png"/>
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" id="tw-title" content="ToolsX - AI Tools Reviews &amp; Blog"/>
   <meta name="twitter:description" id="tw-desc" content="Discover honest reviews of the best AI tools, in-depth guides, and industry insights on ToolsX."/>
 
-  <!-- JSON-LD Structured Data (updated per post) -->
   <script type="application/ld+json" id="json-ld">{"@context":"https://schema.org","@type":"WebSite","name":"ToolsX","url":"https://toolsx.online","description":"Honest reviews of the best AI tools, in-depth guides, and industry insights."}</script>
 
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cmVjdCB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgcng9IjI0IiBmaWxsPSIjMDAzM2EwIi8+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJmYXZHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDA1MmNjO3N0b3Atb3BhY2l0eToxIiAvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwZDlmZjtzdG9wLW9wYWNpdHk6MSIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48Y2lyY2xlIGN4PSI2NCIgY3k9IjY0IiByPSI0OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI2Zhd0dyYWQpIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxwb2x5Z29uIHBvaW50cz0iNjQsNDAgNzAsNTIgNjQsNTQgNTgsNTIiIGZpbGw9InVybCgjZmF3R3JhZCkiLz48dGV4dCB4PSI2NCIgeT0iODAiIGZvbnQtZmFtaWx5PSJTcGFjZSBHcm90ZXNrIiBmb250LXNpemU9IjMyIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0idXJsKCNmYXdHcmFkKSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+WDwvdGV4dD48L3N2Zz4="/>
@@ -174,20 +169,6 @@
   </style>
 </head>
 <body>
-
-<!-- ═══════════════════════════════════════════════════════════════════
-     ✅ HOW TO ADD YOUR BLOG POSTS (read this once, then ignore forever)
-     ═══════════════════════════════════════════════════════════════════
-     1. Go to your Admin panel → Settings → click "📋 Copy Posts for index.html"
-     2. Come back to this file and find the POSTS = [ ... ] array below
-     3. Replace everything between the [ ] with what you copied
-     4. Save & upload this file to Netlify
-     5. Done! Google can now read and index all your posts.
-
-     ONE file = ALL posts. You never need a separate file per post.
-     ═══════════════════════════════════════════════════════════════════ -->
-
-<!-- HEADER -->
 <header>
   <div class="header-inner">
     <a href="/" class="logo" onclick="goHome(event)">
@@ -203,7 +184,6 @@
   </div>
 </header>
 
-<!-- ════════ LISTING PAGE ════════ -->
 <div id="listing-page">
   <div class="container">
     <div class="hero">
@@ -237,7 +217,6 @@
   </div>
 </div>
 
-<!-- ════════ DETAIL PAGE ════════ -->
 <div id="detail-page">
   <div class="detail-container">
     <button class="back-btn" onclick="goHome()">← Back to Blog</button>
@@ -247,7 +226,6 @@
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-section">
@@ -279,11 +257,7 @@
 </footer>
 
 <script>
-// ═══════════════════════════════════════════════════════════════════
-//  STEP 1: PASTE YOUR POSTS HERE
-//  → Go to Admin → Settings → click "📋 Copy Posts for index.html"
-//  → Replace everything inside the [ ] below with what you copied
-// ═══════════════════════════════════════════════════════════════════
+
 const POSTS = [
   {
     "slug": "ai-tools-vs-traditional-software-2026-which-saves-more-time",
