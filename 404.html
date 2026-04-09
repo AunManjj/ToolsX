@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToolsX Blog</title>
+  <script>
+    // GitHub Pages SPA routing fix
+    // When a direct blog URL (like /blog/slug) is accessed, GitHub Pages returns 404
+    // This script redirects to index.html and preserves the path
+    
+    // Get the path from the URL
+    const path = window.location.pathname;
+    const segments = path.split('/').filter(Boolean);
+    
+    // Check if this is a blog route
+    if (segments[0] === 'blog' && segments[1]) {
+      // Redirect to index.html with the path in a query parameter
+      // This is a common workaround for GitHub Pages SPA routing
+      const redirectUrl = '/?slug=' + encodeURIComponent(segments[1]);
+      window.location.replace(redirectUrl);
+    } else {
+      // Not a blog route, redirect to home
+      window.location.replace('/');
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
