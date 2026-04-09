@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <script>
+    // GitHub Pages 404 redirect trick
+    // Converts /blog/some-slug → /?slug=some-slug → index.html handles it
+    var path = window.location.pathname;
+    var match = path.match(/^\/blog\/([a-z0-9-]+)\/?$/);
+    if (match) {
+      window.location.replace('/?slug=' + match[1]);
+    } else {
+      window.location.replace('/');
+    }
+  </script>
+  <title>Redirecting...</title>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
