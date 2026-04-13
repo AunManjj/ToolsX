@@ -676,6 +676,14 @@ function autoFormat(raw) {
   return html;
 }
 
+/* ── Slug helper ─────────────────────────────────────────── */
+function slugify(text) {
+  return (text||'').toLowerCase()
+    .replace(/[^a-z0-9\s-]/g,'').trim()
+    .replace(/\s+/g,'-').replace(/-+/g,'-').slice(0,80);
+}
+function postUrl(p) { return 'post.html?slug=' + slugify(p.title); }
+
 /* ── Render featured grid ───────────────────────────────── */
 function renderFeatured() {
   const posts = getPosts().filter(p => p.status === 'published');
@@ -697,7 +705,7 @@ function renderFeatured() {
     : `<div class="post-img" style="display:flex;align-items:center;justify-content:center;font-size:64px;opacity:.25">${CAT[main.category]?.emoji || '📝'}</div>`;
 
   grid.innerHTML = `
-    <article class="feat-main" onclick="openArticle('${main.id}')">
+    <article class="feat-main" onclick="window.location.href='${postUrl(main)}'">
       ${imgMain}
       <div class="post-body">
         ${catTag(main.category)}
@@ -714,7 +722,7 @@ function renderFeatured() {
         ? `<img src="${p.featuredImg}" alt="${escH(p.title)}" class="side-img" onerror="this.style.display='none'" />`
         : `<div class="side-img" style="display:flex;align-items:center;justify-content:center;font-size:36px;opacity:.25">${CAT[p.category]?.emoji || '📝'}</div>`;
       return `
-        <article class="feat-side" onclick="openArticle('${p.id}')">
+        <article class="feat-side" onclick="window.location.href='${postUrl(p)}'">
           ${sImg}
           <div class="side-body">
             ${catTag(p.category)}
@@ -751,7 +759,7 @@ function renderPosts(filter = 'all', query = '') {
       ? `<img src="${p.featuredImg}" alt="${escH(p.title)}" onerror="this.style.display='none'" />`
       : `<span class="card-img-placeholder">${CAT[p.category]?.emoji || '📝'}</span>`;
     return `
-      <article class="post-card fade-in" data-category="${p.category}" onclick="openArticle('${p.id}')">
+      <article class="post-card fade-in" data-category="${p.category}" onclick="window.location.href='${postUrl(p)}'">
         <div class="card-img">${imgEl}</div>
         <div class="card-body">
           ${catTag(p.category)}
@@ -777,7 +785,7 @@ function renderSidebar() {
   const trending = posts.slice(0, 5);
   document.getElementById('trendingList').innerHTML = trending.length
     ? trending.map((p, i) => `
-        <div class="trending-item" onclick="openArticle('${p.id}')" style="cursor:pointer">
+        <div class="trending-item" onclick="window.location.href='${postUrl(p)}'" style="cursor:pointer">
           <div class="trend-num">0${i+1}</div>
           <div>
             <div class="trend-title">${escH(p.title)}</div>
@@ -804,58 +812,11 @@ function filterByCategory(cat) {
   document.getElementById('posts').scrollIntoView({ behavior:'smooth' });
 }
 
-/* ── Article Modal ──────────────────────────────────────── */
+/* ── openArticle — now navigates to post.html ───────────── */
 function openArticle(id) {
   const post = getPosts().find(p => p.id === id);
   if (!post) return;
-
-  document.getElementById('modalCatTag').innerHTML = catTag(post.category);
-  document.getElementById('modalTitle').textContent = post.title;
-  document.getElementById('modalMeta').innerHTML = `
-    <span>By <strong>${escH(post.author)}</strong></span>
-    <span>·</span>
-    <span>${post.date}</span>
-    ${post.tags ? `<span>·</span><span>${escH(post.tags)}</span>` : ''}
-  `;
-
-  const imgWrap = document.getElementById('modalImgWrap');
-  const ph      = document.getElementById('modalImgPlaceholder');
-  if (post.featuredImg) {
-    imgWrap.style.backgroundImage = `url('${post.featuredImg}')`;
-    imgWrap.innerHTML = `<img src="${post.featuredImg}" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.innerHTML='<span style=font-size:64px;opacity:.2>${CAT[post.category]?.emoji||'📝'}</span>'" />`;
-  } else {
-    imgWrap.innerHTML = `<span style="font-size:64px;opacity:0.2">${CAT[post.category]?.emoji || '📝'}</span>`;
-  }
-
-  let bodyHtml = autoFormat(post.content);
-
-  // Affiliate CTA
-  if (post.affiliateUrl) {
-    bodyHtml += `
-      <div class="affiliate-cta">
-        <div class="affiliate-cta-text">
-          Ready to try this tool?
-          <span>Disclosure: This is an affiliate link. We earn a small commission at no extra cost to you.</span>
-        </div>
-        <a href="${post.affiliateUrl}" target="_blank" rel="noopener sponsored" class="affiliate-cta-btn">
-          Get Access
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
-        </a>
-      </div>`;
-  }
-
-  document.getElementById('modalBody').innerHTML = bodyHtml;
-  document.getElementById('articleModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-document.getElementById('modalClose').addEventListener('click', closeModal);
-document.getElementById('articleModal').addEventListener('click', e => {
-  if (e.target.id === 'articleModal') closeModal();
-});
-function closeModal() {
-  document.getElementById('articleModal').classList.remove('open');
-  document.body.style.overflow = '';
+  window.location.href = postUrl(post);
 }
 
 /* ── Filter bar ─────────────────────────────────────────── */
@@ -893,7 +854,7 @@ function runSearch(q) {
   );
   results.innerHTML = matches.length
     ? matches.map(p => `
-        <div class="s-result" onclick="closeSearch();openArticle('${p.id}')">
+        <div class="s-result" onclick="window.location.href='${postUrl(p)}'">
           <div class="s-result-icon">
             <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           </div>
