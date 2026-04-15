@@ -829,7 +829,7 @@ function filterByCategory(cat) {
 }
 
 /* ── Article Modal ──────────────────────────────────────── */
-function openArticle(id) {
+function _openArticleModal(id) {
   const post = getPosts().find(p => p.id === id);
   if (!post) return;
 
@@ -873,11 +873,11 @@ function openArticle(id) {
   document.body.style.overflow = 'hidden';
 }
 
-document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modalClose').addEventListener('click', _closeArticleModal);
 document.getElementById('articleModal').addEventListener('click', e => {
-  if (e.target.id === 'articleModal') closeModal();
+  if (e.target.id === 'articleModal') _closeArticleModal();
 });
-function closeModal() {
+function _closeArticleModal() {
   document.getElementById('articleModal').classList.remove('open');
   document.body.style.overflow = '';
 }
@@ -1137,22 +1137,17 @@ function slugify(title) {
     .slice(0, 80);
 }
 
-// Override openArticle to update the URL hash
-const _origOpenArticle = openArticle;
 function openArticle(id) {
   const post = getPosts().find(p => p.id === id);
   if (!post) return;
-  _origOpenArticle(id);
+  _openArticleModal(id);
   const slug = slugify(post.title);
   history.pushState({ articleId: id }, post.title, `#post-${slug}-${id}`);
-  // Update page title for shareability
   document.title = `${post.title} — ToolsX`;
 }
 
-// Override closeModal to restore URL and title
-const _origCloseModal = closeModal;
 function closeModal() {
-  _origCloseModal();
+  _closeArticleModal();
   history.pushState(null, 'ToolsX', window.location.pathname + window.location.search);
   document.title = 'ToolsX — AI Tools Reviews, Guides & News';
 }
@@ -1170,7 +1165,7 @@ window.addEventListener('popstate', (e) => {
     // Extract id from end of hash
     const parts = hash.split('-');
     const id = parts[parts.length - 1];
-    if (id) _origOpenArticle(id);
+    if (id) _openArticleModal(id);
   } else if (['#privacy','#terms','#affiliate','#contact'].includes(hash)) {
     openLegal(hash.slice(1));
   }
@@ -1189,7 +1184,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // Wait for posts to load from server
     const tryOpen = () => {
       const post = getPosts().find(p => p.id === id);
-      if (post) { _origOpenArticle(id); }
+      if (post) { _openArticleModal(id); }
       else { setTimeout(tryOpen, 300); }
     };
     setTimeout(tryOpen, 400);
