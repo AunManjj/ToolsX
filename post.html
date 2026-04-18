@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Dynamic SEO — filled by JS -->
+  <title>Loading… | ToolsX</title>
+  <meta name="description" content="" />
+  <link rel="canonical" id="metaCanonical" href="https://toolsx.online/" />
+
+  <!-- Open Graph — filled by JS -->
+  <meta property="og:title"       id="ogTitle"       content="ToolsX" />
+  <meta property="og:description" id="ogDesc"        content="" />
+  <meta property="og:type"                            content="article" />
+  <meta property="og:url"         id="ogUrl"         content="https://toolsx.online/" />
+  <meta property="og:image"       id="ogImage"       content="" />
+  <meta property="og:site_name"                       content="ToolsX" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       id="twTitle"  content="ToolsX" />
+  <meta name="twitter:description" id="twDesc"   content="" />
+  <meta name="twitter:image"       id="twImage"  content="" />
+
+  <!-- Structured Data — filled by JS -->
+  <script type="application/ld+json" id="ldJson">{}</script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230F172A'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='18' fill='%2338BDF8'>T</text></svg>" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QS3YSQDGPE"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-QS3YSQDGPE');</script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:#F8F7F4; --bg-alt:#EFEDE8; --bg-card:#FFFFFF; --bg-dark:#0F172A;
+      --text-h:#0F172A; --text-body:#374151; --text-muted:#9CA3AF;
+      --accent:#0EA5E9; --accent-dark:#0284C7; --accent-glow:rgba(14,165,233,0.15);
+      --border:rgba(15,23,42,0.08); --border-md:rgba(15,23,42,0.13);
+      --shadow-sm:0 1px 4px rgba(15,23,42,0.06);
+      --shadow-md:0 6px 24px rgba(15,23,42,0.08);
+      --shadow-lg:0 16px 48px rgba(15,23,42,0.12);
+      --r-sm:6px; --r-md:12px; --r-lg:18px; --nav-h:64px;
+      --font-serif:'Instrument Serif',Georgia,serif;
+      --font-sans:'Syne',system-ui,sans-serif;
+      --c-review:#0B7A63; --c-review-bg:#E6F5F1;
+      --c-guide:#7C3AED;  --c-guide-bg:#F3E8FF;
+      --c-news:#DC2626;   --c-news-bg:#FEF2F2;
+      --c-tutorial:#0EA5E9; --c-tutorial-bg:#E0F2FE;
+      --c-tools:#D97706;  --c-tools-bg:#FEF3C7;
+      --c-compare:#BE185D; --c-compare-bg:#FCE7F3;
+    }
+    [data-theme="dark"] {
+      --bg:#0B0F1A; --bg-alt:#111827; --bg-card:#161D2E;
+      --text-h:#F1F5F9; --text-body:#94A3B8; --text-muted:#475569;
+      --border:rgba(255,255,255,0.06); --border-md:rgba(255,255,255,0.10);
+      --shadow-sm:0 1px 4px rgba(0,0,0,0.3);
+      --shadow-md:0 6px 24px rgba(0,0,0,0.4);
+      --shadow-lg:0 16px 48px rgba(0,0,0,0.6);
+      --c-review-bg:#032917; --c-guide-bg:#2D1052;
+      --c-news-bg:#450A0A;   --c-tutorial-bg:#0C2840;
+      --c-tools-bg:#3D2000;  --c-compare-bg:#4A0828;
+      --c-review:#34D399; --c-guide:#C084FC;
+      --c-news:#F87171;   --c-tutorial:#38BDF8;
+      --c-tools:#FCD34D;  --c-compare:#F9A8D4;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-sans);background:var(--bg);color:var(--text-body);line-height:1.65;transition:background .3s,color .3s}
+    img{display:block;max-width:100%;object-fit:cover}
+    a{color:inherit;text-decoration:none}
+
+    /* NAVBAR */
+    .navbar{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);height:var(--nav-h);transition:background .3s}
+    .navbar.scrolled{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(16px)}
+    .nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;gap:16px}
+    .nav-logo{display:flex;align-items:center;gap:9px;font-size:20px;font-weight:800;color:var(--text-h);letter-spacing:-0.02em}
+    .logo-mark{width:32px;height:32px;background:var(--bg-dark);border-radius:7px;display:flex;align-items:center;justify-content:center}
+    [data-theme="dark"] .logo-mark{background:var(--accent)}
+    .logo-mark svg{width:18px;height:18px;fill:#38BDF8}
+    [data-theme="dark"] .logo-mark svg{fill:#0F172A}
+    .nav-back{display:flex;align-items:center;gap:6px;margin-left:auto;font-size:13px;font-weight:600;color:var(--text-muted);padding:6px 13px;border:1px solid var(--border-md);border-radius:var(--r-sm);transition:all .15s}
+    .nav-back:hover{color:var(--accent);border-color:var(--accent)}
+    .nav-back svg{width:14px;height:14px}
+    .btn-theme{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:var(--r-sm);color:var(--text-muted);transition:all .15s;cursor:pointer;border:none;background:none}
+    .btn-theme:hover{background:var(--bg-alt);color:var(--text-h)}
+    .btn-theme svg{width:17px;height:17px}
+
+    /* LOADING */
+    .loading-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px;color:var(--text-muted)}
+    .spinner{width:40px;height:40px;border:3px solid var(--border-md);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* ERROR */
+    .error-screen{display:none;text-align:center;padding:80px 20px;color:var(--text-muted)}
+    .error-screen h2{font-family:var(--font-serif);font-size:28px;color:var(--text-h);margin-bottom:10px}
+    .error-screen p{margin-bottom:24px}
+    .btn-home{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--accent);color:#fff;border-radius:var(--r-sm);font-weight:700;font-size:14px}
+
+    /* ARTICLE */
+    .post-wrap{display:none;max-width:800px;margin:0 auto;padding:40px 24px 80px}
+
+    .post-hero{width:100%;height:420px;border-radius:var(--r-lg);overflow:hidden;background:linear-gradient(135deg,var(--bg-dark) 0%,#1E3A5F 100%);display:flex;align-items:center;justify-content:center;font-size:80px;margin-bottom:36px}
+    .post-hero img{width:100%;height:100%;object-fit:cover}
+
+    .post-header{margin-bottom:32px}
+    .cat-tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-bottom:14px}
+    .cat-review  {color:var(--c-review);background:var(--c-review-bg)}
+    .cat-guide   {color:var(--c-guide); background:var(--c-guide-bg)}
+    .cat-news    {color:var(--c-news);  background:var(--c-news-bg)}
+    .cat-tutorial{color:var(--c-tutorial);background:var(--c-tutorial-bg)}
+    .cat-tools   {color:var(--c-tools); background:var(--c-tools-bg)}
+    .cat-compare {color:var(--c-compare);background:var(--c-compare-bg)}
+
+    .post-title{font-family:var(--font-serif);font-size:clamp(28px,5vw,46px);color:var(--text-h);line-height:1.15;font-weight:400;margin-bottom:16px}
+    .post-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--text-muted);padding-bottom:20px;border-bottom:1px solid var(--border)}
+    .post-meta strong{color:var(--text-body)}
+
+    .post-body{font-size:16px;line-height:1.85;color:var(--text-body)}
+    .post-body h1,.post-body h2,.post-body h3{font-family:var(--font-serif);color:var(--text-h);margin:32px 0 14px;line-height:1.3}
+    .post-body h1{font-size:30px}
+    .post-body h2{font-size:24px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+    .post-body h3{font-size:19px;color:var(--accent)}
+    .post-body p{margin-bottom:20px}
+    .post-body ul,.post-body ol{margin:0 0 20px 26px}
+    .post-body li{margin-bottom:8px}
+    .post-body blockquote{border-left:4px solid var(--accent);padding:14px 22px;background:var(--accent-glow);border-radius:0 var(--r-sm) var(--r-sm) 0;margin:24px 0;font-style:italic;color:var(--text-body)}
+    .post-body a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+    .post-body strong{color:var(--text-h);font-weight:700}
+    .post-body code{font-family:monospace;background:var(--bg-alt);padding:2px 6px;border-radius:4px;font-size:0.9em}
+    .post-body img{border-radius:var(--r-md);margin:20px 0}
+
+    .affiliate-cta{margin:28px 0;padding:20px 24px;background:linear-gradient(135deg,rgba(14,165,233,0.08),rgba(14,165,233,0.04));border:1px solid rgba(14,165,233,0.25);border-radius:var(--r-md);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    .affiliate-cta-text{font-weight:600;color:var(--text-h);font-size:15px}
+    .affiliate-cta-text span{display:block;font-size:12.5px;color:var(--text-muted);font-weight:400;margin-top:3px}
+    .affiliate-cta-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--accent);color:#fff;border-radius:var(--r-sm);font-size:14px;font-weight:700;white-space:nowrap;transition:background .15s}
+    .affiliate-cta-btn:hover{background:var(--accent-dark)}
+    .affiliate-cta-btn svg{width:14px;height:14px}
+
+    /* SHARE */
+    .share-bar{display:flex;align-items:center;gap:10px;margin-top:40px;padding-top:28px;border-top:1px solid var(--border);flex-wrap:wrap}
+    .share-label{font-size:13px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-right:4px}
+    .share-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:var(--r-sm);font-size:13px;font-weight:600;cursor:pointer;border:1px solid var(--border-md);background:var(--bg-card);color:var(--text-body);transition:all .15s}
+    .share-btn:hover{border-color:var(--accent);color:var(--accent)}
+    .share-btn svg{width:14px;height:14px}
+    .copy-btn.copied{border-color:#22c55e;color:#22c55e}
+
+    /* BACK LINK */
+    .back-link{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--text-muted);margin-bottom:32px;transition:color .15s}
+    .back-link:hover{color:var(--accent)}
+    .back-link svg{width:15px;height:15px}
+
+    /* FOOTER */
+    .site-footer{background:var(--bg-dark);color:#94A3B8;padding:36px 24px;text-align:center;font-size:13px;margin-top:0}
+    .site-footer a{color:#94A3B8;transition:color .12s}
+    .site-footer a:hover{color:var(--accent)}
+
+    @media(max-width:640px){.post-hero{height:260px}.post-wrap{padding:24px 16px 60px}}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="mainNav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      ToolsX
+    </a>
+    <button class="btn-theme" id="themeToggle" title="Toggle theme">
+      <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      <svg id="iconMoon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <a href="/" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All Articles
+    </a>
+  </div>
+</nav>
+
+<!-- LOADING -->
+<div class="loading-screen" id="loadingScreen">
+  <div class="spinner"></div>
+  <span>Loading article…</span>
+</div>
+
+<!-- ERROR -->
+<div class="error-screen" id="errorScreen">
+  <h2>Article Not Found</h2>
+  <p>This post may have been removed or the link is incorrect.</p>
+  <a href="/" class="btn-home">← Back to ToolsX</a>
+</div>
+
+<!-- ARTICLE -->
+<main class="post-wrap" id="postWrap">
+  <a href="/" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Back to all articles
+  </a>
+
+  <div id="postHero" class="post-hero"></div>
+
+  <div class="post-header">
+    <div id="postCatTag"></div>
+    <h1 class="post-title" id="postTitle"></h1>
+    <div class="post-meta" id="postMeta"></div>
+  </div>
+
+  <div class="post-body" id="postBody"></div>
+
+  <!-- Share bar -->
+  <div class="share-bar">
+    <span class="share-label">Share</span>
+    <button class="share-btn copy-btn" id="copyBtn" onclick="copyLink()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      Copy Link
+    </button>
+    <a class="share-btn" id="twitterShare" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Twitter
+    </a>
+    <a class="share-btn" id="linkedinShare" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="footerYear"></span> ToolsX · <a href="/">Home</a> · <a href="/admin">Admin</a> · Affiliate Disclosure</p>
+</footer>
+
+<script>
+/* Theme */
+const html = document.documentElement;
+const saved = localStorage.getItem('toolsx-theme') || 'light';
+html.setAttribute('data-theme', saved);
+document.getElementById('iconSun').style.display  = saved === 'dark' ? 'none' : '';
+document.getElementById('iconMoon').style.display = saved === 'dark' ? '' : 'none';
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const n = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', n);
+  localStorage.setItem('toolsx-theme', n);
+  document.getElementById('iconSun').style.display  = n === 'dark' ? 'none' : '';
+  document.getElementById('iconMoon').style.display = n === 'dark' ? '' : 'none';
+});
+
+/* Nav scroll */
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', scrollY > 10);
+}, { passive:true });
+
+document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+const CAT = {
+  review:  {label:'AI Review',  emoji:'⭐'},
+  guide:   {label:'Guide',      emoji:'📖'},
+  news:    {label:'News',       emoji:'📰'},
+  tutorial:{label:'Tutorial',   emoji:'🎓'},
+  tools:   {label:'Tools',      emoji:'🔧'},
+  compare: {label:'Compare',    emoji:'⚖️'},
+};
+
+function escH(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function stripHtml(s){ return String(s||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim(); }
+
+function autoFormat(raw) {
+  if (!raw) return '<p>No content available.</p>';
+  let h = raw;
+  if (!/<[a-z][\s\S]*>/i.test(h)) {
+    const lines = h.split(/\n+/).filter(l => l.trim());
+    h = lines.map((line, i) => {
+      line = line.trim();
+      if (i === 0) return `<h2>${line}</h2>`;
+      if (/^#{1,3}\s/.test(line)) { const lv=line.match(/^(#+)/)[1].length; return `<h${lv+1}>${line.replace(/^#+\s/,'')}</h${lv+1}>`; }
+      if (/^[-*]\s/.test(line)) return `<li>${line.replace(/^[-*]\s/,'')}</li>`;
+      if (/^\d+\.\s/.test(line)) return `<li>${line.replace(/^\d+\.\s/,'')}</li>`;
+      if (line.startsWith('>')) return `<blockquote>${line.slice(1).trim()}</blockquote>`;
+      if (line.length < 60 && i > 0) return `<h3>${line}</h3>`;
+      return `<p>${line}</p>`;
+    }).join('\n');
+    h = h.replace(/(<li>.*?<\/li>\n?)+/gs, m => `<ul>${m}</ul>`);
+  }
+  h = h.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>').replace(/`(.+?)`/g,'<code>$1</code>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  return h;
+}
+
+/* Copy link */
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.classList.add('copied');
+    btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Link`;
+    }, 2000);
+  });
+}
+
+function renderPost(post) {
+  const url = window.location.href;
+  const desc = post.meta || stripHtml(post.content || '').slice(0, 160);
+
+  /* Page title & meta */
+  document.title = post.title + ' | ToolsX';
+  document.querySelector('meta[name="description"]').content = desc;
+  document.getElementById('metaCanonical').href = url;
+  document.getElementById('ogTitle').content   = post.title;
+  document.getElementById('ogDesc').content    = desc;
+  document.getElementById('ogUrl').content     = url;
+  document.getElementById('ogImage').content   = post.featuredImg || '';
+  document.getElementById('twTitle').content   = post.title;
+  document.getElementById('twDesc').content    = desc;
+  document.getElementById('twImage').content   = post.featuredImg || '';
+
+  /* Structured data */
+  document.getElementById('ldJson').textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": desc,
+    "author": {"@type":"Person","name": post.author || "ToolsX"},
+    "datePublished": post.date,
+    "publisher": {"@type":"Organization","name":"ToolsX","url":"https://toolsx.online"},
+    "url": url,
+    "image": post.featuredImg || ""
+  });
+
+  /* Share links */
+  document.getElementById('twitterShare').href  = `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(url)}`;
+  document.getElementById('linkedinShare').href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+
+  /* Hero image */
+  const hero = document.getElementById('postHero');
+  if (post.featuredImg) {
+    hero.innerHTML = `<img src="${post.featuredImg}" alt="${escH(post.title)}" onerror="this.parentElement.innerHTML='<span style=font-size:80px;opacity:.2>${CAT[post.category]?.emoji||'📝'}</span>'" />`;
+  } else {
+    hero.innerHTML = `<span style="font-size:80px;opacity:0.2">${CAT[post.category]?.emoji || '📝'}</span>`;
+  }
+
+  /* Category tag */
+  const c = CAT[post.category];
+  document.getElementById('postCatTag').innerHTML = c ? `<span class="cat-tag cat-${post.category}">${c.label}</span>` : '';
+
+  /* Title + meta */
+  document.getElementById('postTitle').textContent = post.title;
+  document.getElementById('postMeta').innerHTML = `
+    <span>By <strong>${escH(post.author || 'ToolsX')}</strong></span>
+    <span>·</span>
+    <span>${post.date}</span>
+    ${post.tags ? `<span>·</span><span>${escH(post.tags)}</span>` : ''}
+  `;
+
+  /* Body */
+  let body = autoFormat(post.content);
+  if (post.affiliateUrl) {
+    body += `<div class="affiliate-cta">
+      <div class="affiliate-cta-text">Ready to try this tool?<span>Disclosure: This is an affiliate link. We earn a small commission at no extra cost to you.</span></div>
+      <a href="${post.affiliateUrl}" target="_blank" rel="noopener sponsored" class="affiliate-cta-btn">Get Access <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg></a>
+    </div>`;
+  }
+  document.getElementById('postBody').innerHTML = body;
+
+  /* Show */
+  document.getElementById('loadingScreen').style.display = 'none';
+  document.getElementById('postWrap').style.display = 'block';
+}
+
+function showError() {
+  document.getElementById('loadingScreen').style.display = 'none';
+  document.getElementById('errorScreen').style.display   = 'block';
+  document.title = 'Article Not Found | ToolsX';
+}
+</script>
+
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import { getFirestore, doc, getDoc, collection, query, where, getDocs, limit } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAacp56Y9Nv7uNV7bgbis9olQ0h4soGv5I",
+  authDomain: "toolsx-8ecf8.firebaseapp.com",
+  projectId: "toolsx-8ecf8",
+  storageBucket: "toolsx-8ecf8.firebasestorage.app",
+  messagingSenderId: "362914761329",
+  appId: "1:362914761329:web:b3063a005da657ee4169d0"
+};
+
+const app = initializeApp(firebaseConfig);
+const db  = getFirestore(app);
+
+/* Get post ID from URL: /post/POST_ID or ?id=POST_ID */
+function getPostId() {
+  const path  = window.location.pathname; // /post/1776521506386
+  const parts = path.split('/').filter(Boolean);
+  if (parts[0] === 'post' && parts[1]) return decodeURIComponent(parts[1]);
+  return new URLSearchParams(window.location.search).get('id');
+}
+
+async function loadPost() {
+  const id = getPostId();
+  if (!id) { showError(); return; }
+
+  try {
+    const snap = await getDoc(doc(db, 'posts', id));
+    if (snap.exists() && snap.data().status === 'published') {
+      renderPost({ id: snap.id, ...snap.data() });
+    } else {
+      showError();
+    }
+  } catch(e) {
+    console.error('Firestore error:', e);
+    showError();
+  }
+}
+
+loadPost();
+</script>
+
+</body>
+</html>
