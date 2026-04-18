@@ -906,6 +906,13 @@ function doLogin() {
 }
 
 /* ── INIT ──────────────────────────────────────────────── */
+
+  const CAT = {
+  review: {label:'AI Review', dot:'#34D399'}, guide:{label:'Guide', dot:'#C084FC'},
+  news:   {label:'News',      dot:'#F87171'}, tutorial:{label:'Tutorial', dot:'#38BDF8'},
+  tools:  {label:'Tools',     dot:'#FCD34D'}, compare:{label:'Compare', dot:'#F9A8D4'},
+};
+  
 if (isLoggedIn()) {
   document.getElementById('loginScreen').classList.add('hidden');
   document.getElementById('adminWrap').classList.add('visible');
@@ -1002,11 +1009,7 @@ function toast(msg, type='info') {
 }
 
 /* ── CATEGORY CONFIG ─────────────────────────────────────── */
-const CAT = {
-  review: {label:'AI Review', dot:'#34D399'}, guide:{label:'Guide', dot:'#C084FC'},
-  news:   {label:'News',      dot:'#F87171'}, tutorial:{label:'Tutorial', dot:'#38BDF8'},
-  tools:  {label:'Tools',     dot:'#FCD34D'}, compare:{label:'Compare', dot:'#F9A8D4'},
-};
+
 function ctag(cat) {
   const c = CAT[cat];
   return c ? `<span class="ctag ct-${cat}">${c.label}</span>` : '<span style="color:var(--text-muted);font-size:12px">—</span>';
