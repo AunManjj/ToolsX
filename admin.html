@@ -854,6 +854,12 @@
 ============================================================ -->
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+  import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL
+} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
 import {
   getFirestore,
   collection,
@@ -880,6 +886,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db  = getFirestore(app);
+  const storage = getStorage(app);
 const COLL = 'posts';
 
 /* ── STORAGE KEYS (localStorage — auth/session/settings only) */
@@ -1215,19 +1222,35 @@ let uploadedImgData = null;
 document.getElementById('imgFileInput').addEventListener('change', function() {
   const file = this.files[0];
   if (!file) return;
-  if (file.size > 10 * 1024 * 1024) { toast('Image too large. Max 10MB.','warning'); return; }
+  if (file.size > 10 * 1024 * 1024) { toast('Image too large. Max 10MB.', 'warning'); return; }
+
+  // Show local preview only (not saved to Firestore)
   const reader = new FileReader();
   reader.onload = function(e) {
-    uploadedImgData = e.target.result;
     const preview = document.getElementById('imgPreview');
-    preview.src = uploadedImgData;
+    preview.src = e.target.result;
     preview.style.display = 'block';
     document.getElementById('imgUploadArea').style.display = 'none';
-    document.getElementById('imgLabel').textContent = `📁 ${file.name} (${(file.size/1024).toFixed(0)} KB)`;
-    document.getElementById('fImgUrl').value = '';
-    toast('Image loaded from your PC!','success');
+    document.getElementById('imgLabel').textContent = `📁 ${file.name} — uploading…`;
   };
   reader.readAsDataURL(file);
+
+  // Upload to Firebase Storage and save URL
+  const storageRef = ref(storage, `post-images/${Date.now()}_${file.name}`);
+  showSpinner('Uploading image…');
+  uploadBytes(storageRef, file).then(snapshot => {
+    return getDownloadURL(snapshot.ref);
+  }).then(url => {
+    uploadedImgData = url;  // ✅ Now stores a short URL, not Base64
+    document.getElementById('fImgUrl').value = url;
+    document.getElementById('imgLabel').textContent = `✅ ${file.name} uploaded`;
+    toast('Image uploaded to Firebase Storage!', 'success');
+  }).catch(err => {
+    toast('Image upload failed: ' + err.message, 'danger');
+    uploadedImgData = null;
+  }).finally(() => {
+    hideSpinner();
+  });
 });
 
 document.getElementById('fImgUrl').addEventListener('input', function() {
