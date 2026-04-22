@@ -1,7 +1,8 @@
 {
   "rewrites": [
-    { "source": "/admin", "destination": "/admin.html" },
-    { "source": "/post/:id", "destination": "/post.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/sitemap.xml", "destination": "/api/sitemap" },
+    { "source": "/admin",       "destination": "/admin.html"  },
+    { "source": "/post/:id",    "destination": "/post.html"   },
+    { "source": "/(.*)",        "destination": "/index.html"  }
   ]
 }
