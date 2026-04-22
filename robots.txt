@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 
-Sitemap: https://toolsx.online/sitemap.xml
+Sitemap: https://www.toolsx.online/sitemap.xml
