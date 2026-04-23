@@ -442,7 +442,7 @@
         <div class="sb-section">Publish</div>
         <li><button class="sb-btn" id="exportJsonBtn" style="color:#34D399" onclick="exportPostsJson()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Export posts.json
+          Backup posts.json
         </button></li>
         <div class="sb-divider"></div>
         <div class="sb-section">Content</div>
@@ -1681,7 +1681,7 @@ async function exportPostsJson() {
   a.download  = 'posts.json';
   a.click();
   URL.revokeObjectURL(url);
-  toast('posts.json downloaded! Commit it to your GitHub repo root to publish.', 'success');
+  toast('Backup downloaded! Your posts are already live via Firestore — no GitHub upload needed.', 'success');
 }
 window.exportPostsJson = exportPostsJson;
 
