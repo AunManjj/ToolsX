@@ -579,12 +579,12 @@ document.getElementById('mobileMenuBtn').addEventListener('click', () => {
 });
 
 /* ── Posts data ─────────────────────────────────────────── */
-// Posts are loaded from posts.json (committed to GitHub/Netlify).
-// localStorage is used as a local preview cache only.
-let _postsCache = null;
+// _postsCache lives on window so the ES module script below can write to it.
+// (ES modules have their own scope — a plain `let` here is invisible to them.)
+window._postsCache = null;
 
 function getPosts() {
-  return _postsCache || [];
+  return window._postsCache || [];
 }
 
 // loadPostsFromServer is defined below as a module-scoped function
@@ -926,7 +926,7 @@ function renderSeoContent() {
 // Listen for storage changes (from admin panel on same machine / local dev)
 window.addEventListener('storage', e => {
   if (e.key === POSTS_KEY) {
-    _postsCache = JSON.parse(e.newValue) || [];
+    window._postsCache = JSON.parse(e.newValue) || [];
     renderFeatured(); renderPosts(currentFilter); renderSidebar();
   }
 });
@@ -955,10 +955,10 @@ async function loadPostsFromServer() {
   try {
     const q    = query(collection(db, 'posts'), orderBy('timestamp', 'desc'));
     const snap = await getDocs(q);
-    _postsCache = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    window._postsCache = snap.docs.map(d => ({ id: d.id, ...d.data() }));
   } catch(e) {
     console.warn('Firestore failed:', e);
-    _postsCache = [];
+    window._postsCache = [];
   }
   renderFeatured();
   renderPosts();
