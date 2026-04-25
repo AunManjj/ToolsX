@@ -225,7 +225,7 @@
       <p>Most browsers allow you to refuse cookies. Please consult your browser's help section for instructions.</p>
 
       <h2>4. Third-Party Links</h2>
-      <p>
+      <p id="affiliate">
         Our website contains affiliate links to third-party websites. We are not responsible for the privacy practices of these external sites. We encourage you to read their privacy policies before providing any information.
       </p>
 
@@ -398,19 +398,25 @@
     if (element) element.style.display = 'block';
   }
 
-  // Get current page from URL
-  const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'privacy';
-  
+  // Get current page from URL query param e.g. ?page=privacy
+  const params = new URLSearchParams(window.location.search);
+  const currentPage = params.get('page') || 'privacy';
+
   // Show appropriate page
   if (currentPage === 'contact') {
     document.getElementById('contact').style.display = 'block';
-    document.querySelector('.page-title').textContent = 'Contact Us';
   } else if (currentPage === 'terms') {
     document.getElementById('terms').style.display = 'block';
-    document.querySelector('.page-title').textContent = 'Terms of Service';
   } else {
     document.getElementById('privacy').style.display = 'block';
-    document.querySelector('.page-title').textContent = 'Privacy Policy';
+  }
+
+  // Scroll to affiliate section if hash present
+  if (window.location.hash === '#affiliate') {
+    setTimeout(() => {
+      const el = document.getElementById('affiliate');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
   }
 
   // Contact form handler
